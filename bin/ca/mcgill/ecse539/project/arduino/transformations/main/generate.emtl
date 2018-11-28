@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="generate" nsURI="ca::mcgill::ecse539::project::arduino::transformations::main::generate" startHeaderPosition="29" endHeaderPosition="163">
+    <input>
+      <takesTypesFrom href="http://www.mcgill.ca/ecse539/project/arduino#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="void "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Setup"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aSketch" referredVariable="/0/generateElement/aSketch">
+              <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch/setup"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.mcgill.ca/ecse539/project/arduino#//Setup/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(){&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="pinMode("/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="pin" referredVariable="/0/generateElement/%/%.3/pin">
+                <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.mcgill.ca/ecse539/project/arduino#//Pin/name"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", INPUT);&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/equalsIgnoreCase">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/toString">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://www.mcgill.ca/ecse539/project/arduino#//Direction"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="pin" referredVariable="/0/generateElement/%/%.3/pin">
+                    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.mcgill.ca/ecse539/project/arduino#//Pin/Direction"/>
+                </source>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="INPUT">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </ifExpr>
+          </body>
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="pinMode("/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="pin" referredVariable="/0/generateElement/%/%.3/pin">
+                <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.mcgill.ca/ecse539/project/arduino#//Pin/name"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", OUTPUT);&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/equalsIgnoreCase">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/toString">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://www.mcgill.ca/ecse539/project/arduino#//Direction"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="pin" referredVariable="/0/generateElement/%/%.3/pin">
+                    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.mcgill.ca/ecse539/project/arduino#//Pin/Direction"/>
+                </source>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="OUTPUT">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </ifExpr>
+          </body>
+          <loopVariable name="pin">
+            <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/9/OrderedSet(DigitalPin)">
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Setup"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aSketch" referredVariable="/0/generateElement/aSketch">
+                <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch/setup"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Setup/digitalpin"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}&#xA;void "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Loop"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aSketch" referredVariable="/0/generateElement/aSketch">
+              <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch/loop"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.mcgill.ca/ecse539/project/arduino#//Loop/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(){&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="digitalWrite("/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EEnum" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPinNumber"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+                  <source xsi:type="ocl.ecore:OperationCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Write"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="instruction" referredVariable="/0/generateElement/%/%.7/instruction">
+                      <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+                    </source>
+                    <argument xsi:type="ocl.ecore:TypeExp" eType="/22/Write">
+                      <referredType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Write"/>
+                    </argument>
+                    <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Write/digitalpin"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin/number"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")&#xA;"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+                    <source xsi:type="ocl.ecore:OperationCallExp">
+                      <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Write"/>
+                      <source xsi:type="ocl.ecore:VariableExp" name="instruction" referredVariable="/0/generateElement/%/%.7/instruction">
+                        <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+                      </source>
+                      <argument xsi:type="ocl.ecore:TypeExp" eType="/22/Write">
+                        <referredType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Write"/>
+                      </argument>
+                      <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Write/digitalpin"/>
+                  </source>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsUndefined"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/not"/>
+              </ifExpr>
+            </body>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/equalsIgnoreCase">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:OperationCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="instruction" referredVariable="/0/generateElement/%/%.7/instruction">
+                      <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+                    </source>
+                    <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/emf/2002/Ecore#//EObject/eClass"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toString"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Write">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </ifExpr>
+          </body>
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="digitalRead("/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EEnum" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPinNumber"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+                  <source xsi:type="ocl.ecore:OperationCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Read"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="instruction" referredVariable="/0/generateElement/%/%.7/instruction">
+                      <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+                    </source>
+                    <argument xsi:type="ocl.ecore:TypeExp" eType="/22/Read">
+                      <referredType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Read"/>
+                    </argument>
+                    <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Read/digitalpin"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin/number"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")&#xA;"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+                    <source xsi:type="ocl.ecore:OperationCallExp">
+                      <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Read"/>
+                      <source xsi:type="ocl.ecore:VariableExp" name="instruction" referredVariable="/0/generateElement/%/%.7/instruction">
+                        <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+                      </source>
+                      <argument xsi:type="ocl.ecore:TypeExp" eType="/22/Read">
+                        <referredType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Read"/>
+                      </argument>
+                      <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Read/digitalpin"/>
+                  </source>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsUndefined"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/not"/>
+              </ifExpr>
+            </body>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/equalsIgnoreCase">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:OperationCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="instruction" referredVariable="/0/generateElement/%/%.7/instruction">
+                      <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+                    </source>
+                    <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/emf/2002/Ecore#//EObject/eClass"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toString"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Read">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </ifExpr>
+          </body>
+          <loopVariable name="instruction">
+            <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/9/OrderedSet(Instruction)">
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Loop"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aSketch" referredVariable="/0/generateElement/aSketch">
+                <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch/loop"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.mcgill.ca/ecse539/project/arduino#//Loop/instruction"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aSketch" referredVariable="/0/generateElement/aSketch">
+            <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch/name"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aSketch">
+        <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="equalsIgnoreCase">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateElement">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateElement"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aSketch">
+          <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+      <eOperations name="toString">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="arduino_Sketch_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(DigitalPin)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Instruction)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//DigitalPin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="types">
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Write">
+      <referredType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Write"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Read">
+      <referredType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Read"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Instruction"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.mcgill.ca/ecse539/project/arduino#//Sketch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateElement">
+      <details key="start" value="97"/>
+      <details key="end" value="1047"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateElement/%">
+      <details key="start" value="166"/>
+      <details key="end" value="1035"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateElement/%/%">
+      <details key="start" value="204"/>
+      <details key="end" value="209"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateElement/%/%.1">
+      <details key="start" value="210"/>
+      <details key="end" value="228"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateElement/%/%.1/%">
+      <details key="start" value="210"/>
+      <details key="end" value="223"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateElement/%/%.1/%/aSketch">
+      <details key="start" value="210"/>
+      <details key="end" value="217"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateElement/%/%.2">
+      <details key="start" value="230"/>
+      <details key="end" value="234"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateElement/%/%.3">
+      <details key="start" value="234"/>
+      <details key="end" value="475"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateElement/%/%.3/%">
+      <details key="start" value="285"/>
+      <details key="end" value="375"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateElement/%/%.3/%/%">
+      <details key="start" value="341"/>
+      <details key="end" value="349"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateElement/%/%.3/%/%.1">
+      <details key="start" value="350"/>
+      <details key="end" value="358"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateElement/%/%.3/%/%.1/pin">
+      <details key="start" value="350"/>
+      <details key="end" value="353"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateElement/%/%.3/%/%.2">
+      <details key="start" value="360"/>
+      <details key="end" value="370"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateElement/%/%.3/%/%.3">
+      <details key="start" value="289"/>
+      <details key="end" value="339"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateElement/%/%.3/%/%.3/%">
+      <details key="start" value="289"/>
+      <details key="end" value="313"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateElement/%/%.3/%/%.3/%/%">
+      <details key="start" value="289"/>
+      <details key="end" value="302"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateElement/%/%.3/%/%.3/%/%/pin">
+      <details key="start" value="289"/>
+      <details key="end" value="292"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateElement/%/%.3/%/%.3/%.1">
+      <details key="start" value="331"/>
+      <details key="end" value="338"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateElement/%/%.3/%.1">
+      <details key="start" value="376"/>
+      <details key="end" value="468"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateElement/%/%.3/%.1/%">
+      <details key="start" value="433"/>
+      <details key="end" value="441"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateElement/%/%.3/%.1/%.1">
+      <details key="start" value="442"/>
+      <details key="end" value="450"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateElement/%/%.3/%.1/%.1/pin">
+      <details key="start" value="442"/>
+      <details key="end" value="445"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateElement/%/%.3/%.1/%.2">
+      <details key="start" value="452"/>
+      <details key="end" value="463"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateElement/%/%.3/%.1/%.3">
+      <details key="start" value="380"/>
+      <details key="end" value="431"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateElement/%/%.3/%.1/%.3/%">
+      <details key="start" value="380"/>
+      <details key="end" value="404"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateElement/%/%.3/%.1/%.3/%/%">
+      <details key="start" value="380"/>
+      <details key="end" value="393"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateElement/%/%.3/%.1/%.3/%/%/pin">
+      <details key="start" value="380"/>
+      <details key="end" value="383"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateElement/%/%.3/%.1/%.3/%.1">
+      <details key="start" value="422"/>
+      <details key="end" value="430"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateElement/%/%.3/pin">
+      <details key="start" value="240"/>
+      <details key="end" value="255"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateElement/%/%.3/%.2">
+      <details key="start" value="258"/>
+      <details key="end" value="282"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateElement/%/%.3/%.2/%">
+      <details key="start" value="258"/>
+      <details key="end" value="271"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateElement/%/%.3/%.2/%/aSketch">
+      <details key="start" value="258"/>
+      <details key="end" value="265"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateElement/%/%.4">
+      <details key="start" value="476"/>
+      <details key="end" value="483"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateElement/%/%.5">
+      <details key="start" value="484"/>
+      <details key="end" value="501"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateElement/%/%.5/%">
+      <details key="start" value="484"/>
+      <details key="end" value="496"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateElement/%/%.5/%/aSketch">
+      <details key="start" value="484"/>
+      <details key="end" value="491"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateElement/%/%.6">
+      <details key="start" value="503"/>
+      <details key="end" value="507"/>
+      <details key="line" value="18"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateElement/%/%.7">
+      <details key="start" value="507"/>
+      <details key="end" value="1025"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateElement/%/%.7/%">
+      <details key="start" value="567"/>
+      <details key="end" value="794"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateElement/%/%.7/%/%">
+      <details key="start" value="635"/>
+      <details key="end" value="788"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateElement/%/%.7/%/%/%">
+      <details key="start" value="710"/>
+      <details key="end" value="723"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateElement/%/%.7/%/%/%.1">
+      <details key="start" value="724"/>
+      <details key="end" value="779"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateElement/%/%.7/%/%/%.1/%">
+      <details key="start" value="724"/>
+      <details key="end" value="772"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateElement/%/%.7/%/%/%.1/%/%">
+      <details key="start" value="724"/>
+      <details key="end" value="761"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateElement/%/%.7/%/%/%.1/%/%/instruction">
+      <details key="start" value="724"/>
+      <details key="end" value="735"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateElement/%/%.7/%/%/%.1/%/%/%">
+      <details key="start" value="746"/>
+      <details key="end" value="760"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateElement/%/%.7/%/%/%.2">
+      <details key="start" value="781"/>
+      <details key="end" value="783"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateElement/%/%.7/%/%/%.3">
+      <details key="start" value="639"/>
+      <details key="end" value="708"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateElement/%/%.7/%/%/%.3/%">
+      <details key="start" value="643"/>
+      <details key="end" value="708"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateElement/%/%.7/%/%/%.3/%/%">
+      <details key="start" value="643"/>
+      <details key="end" value="691"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateElement/%/%.7/%/%/%.3/%/%/%">
+      <details key="start" value="643"/>
+      <details key="end" value="680"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateElement/%/%.7/%/%/%.3/%/%/%/instruction">
+      <details key="start" value="643"/>
+      <details key="end" value="654"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateElement/%/%.7/%/%/%.3/%/%/%/%">
+      <details key="start" value="665"/>
+      <details key="end" value="679"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateElement/%/%.7/%/%.1">
+      <details key="start" value="571"/>
+      <details key="end" value="633"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateElement/%/%.7/%/%.1/%">
+      <details key="start" value="571"/>
+      <details key="end" value="607"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateElement/%/%.7/%/%.1/%/%">
+      <details key="start" value="571"/>
+      <details key="end" value="596"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateElement/%/%.7/%/%.1/%/%/%">
+      <details key="start" value="571"/>
+      <details key="end" value="591"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateElement/%/%.7/%/%.1/%/%/%/instruction">
+      <details key="start" value="571"/>
+      <details key="end" value="582"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateElement/%/%.7/%/%.1/%.1">
+      <details key="start" value="625"/>
+      <details key="end" value="632"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateElement/%/%.7/%.1">
+      <details key="start" value="795"/>
+      <details key="end" value="1018"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateElement/%/%.7/%.1/%">
+      <details key="start" value="862"/>
+      <details key="end" value="1012"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateElement/%/%.7/%.1/%/%">
+      <details key="start" value="936"/>
+      <details key="end" value="948"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateElement/%/%.7/%.1/%/%.1">
+      <details key="start" value="949"/>
+      <details key="end" value="1003"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateElement/%/%.7/%.1/%/%.1/%">
+      <details key="start" value="949"/>
+      <details key="end" value="996"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateElement/%/%.7/%.1/%/%.1/%/%">
+      <details key="start" value="949"/>
+      <details key="end" value="985"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateElement/%/%.7/%.1/%/%.1/%/%/instruction">
+      <details key="start" value="949"/>
+      <details key="end" value="960"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateElement/%/%.7/%.1/%/%.1/%/%/%">
+      <details key="start" value="971"/>
+      <details key="end" value="984"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateElement/%/%.7/%.1/%/%.2">
+      <details key="start" value="1005"/>
+      <details key="end" value="1007"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateElement/%/%.7/%.1/%/%.3">
+      <details key="start" value="866"/>
+      <details key="end" value="934"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateElement/%/%.7/%.1/%/%.3/%">
+      <details key="start" value="870"/>
+      <details key="end" value="934"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateElement/%/%.7/%.1/%/%.3/%/%">
+      <details key="start" value="870"/>
+      <details key="end" value="917"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateElement/%/%.7/%.1/%/%.3/%/%/%">
+      <details key="start" value="870"/>
+      <details key="end" value="906"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateElement/%/%.7/%.1/%/%.3/%/%/%/instruction">
+      <details key="start" value="870"/>
+      <details key="end" value="881"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateElement/%/%.7/%.1/%/%.3/%/%/%/%">
+      <details key="start" value="892"/>
+      <details key="end" value="905"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateElement/%/%.7/%.1/%.1">
+      <details key="start" value="799"/>
+      <details key="end" value="860"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateElement/%/%.7/%.1/%.1/%">
+      <details key="start" value="799"/>
+      <details key="end" value="835"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateElement/%/%.7/%.1/%.1/%/%">
+      <details key="start" value="799"/>
+      <details key="end" value="824"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateElement/%/%.7/%.1/%.1/%/%/%">
+      <details key="start" value="799"/>
+      <details key="end" value="819"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateElement/%/%.7/%.1/%.1/%/%/%/instruction">
+      <details key="start" value="799"/>
+      <details key="end" value="810"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateElement/%/%.7/%.1/%.1/%.1">
+      <details key="start" value="853"/>
+      <details key="end" value="859"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateElement/%/%.7/instruction">
+      <details key="start" value="513"/>
+      <details key="end" value="537"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateElement/%/%.7/%.2">
+      <details key="start" value="540"/>
+      <details key="end" value="564"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateElement/%/%.7/%.2/%">
+      <details key="start" value="540"/>
+      <details key="end" value="552"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateElement/%/%.7/%.2/%/aSketch">
+      <details key="start" value="540"/>
+      <details key="end" value="547"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateElement/%/%.8">
+      <details key="start" value="1026"/>
+      <details key="end" value="1028"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateElement/%/%.9">
+      <details key="start" value="173"/>
+      <details key="end" value="185"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateElement/%/%.9/aSketch">
+      <details key="start" value="173"/>
+      <details key="end" value="180"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateElement/%/%.10">
+      <details key="start" value="194"/>
+      <details key="end" value="201"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateElement/aSketch">
+      <details key="start" value="130"/>
+      <details key="end" value="146"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

@@ -1,0 +1,33 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.mcgill.ca/ecse539/project/arduino')]
+
+
+[template public generateElement(aSketch : Sketch)]
+[comment @main/]
+[file (aSketch.name, false, 'UTF-8')]
+void [aSketch.setup.name/](){
+[for (pin: DigitalPin | aSketch.setup.digitalpin)]
+[if pin.Direction.toString().equalsIgnoreCase('INPUT')]
+pinMode([pin.name/], INPUT);
+[/if]
+[if pin.Direction.toString().equalsIgnoreCase('OUTPUT')]
+pinMode([pin.name/], OUTPUT);
+[/if]
+[/for]
+}
+void [aSketch.loop.name/](){
+[for (instruction: Instruction | aSketch.loop.instruction)]
+[if instruction.eClass().name.toString().equalsIgnoreCase('Write')]
+[if not instruction.oclAsType(arduino::Write).digitalpin.oclIsUndefined()]
+digitalWrite([instruction.oclAsType(arduino::Write).digitalpin.number/])
+[/if]
+[/if]
+[if instruction.eClass().name.toString().equalsIgnoreCase('Read')]
+[if not instruction.oclAsType(arduino::Read).digitalpin.oclIsUndefined()]
+digitalRead([instruction.oclAsType(arduino::Read).digitalpin.number/])
+[/if]
+[/if]
+[/for]
+}
+[/file]
+[/template]
