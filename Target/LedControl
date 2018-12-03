@@ -1,12 +1,1 @@
-void Setup(){
-pinMode(D0, INPUT);
-pinMode(D1, OUTPUT);
-}
-void Loop(){
-switchStatus = digitalRead(D0)
-if(switchStatus EQ 1)
-{
-ledStatus = 1
-digitalWrite(D1)
-}
-}
+

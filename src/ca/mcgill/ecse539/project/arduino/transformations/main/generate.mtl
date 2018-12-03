@@ -15,20 +15,17 @@ pinMode([pin.number.toString().at(2)/], OUTPUT);
 [/if]
 [/for]
 }
+
 void [aSketch.loop.name.toLowerCase()/](){
 [comment first instrunction is always at the level 1 hierarcy/]
 [for (instruction: Instruction | aSketch.loop.instruction)]
 [if instruction.isFrist]
 [writeInstruction(instruction)/]
 [/if]	
-
 [/for]
 }
 [/file]
 [/template]
-
-
-
 
 [template public writeInstruction(anInstruction : Instruction)]
 [if anInstruction.eAllContents(arduino::Instruction)->notEmpty()]
@@ -43,7 +40,7 @@ void [aSketch.loop.name.toLowerCase()/](){
 [else]
 [if anInstruction.eClass().name.toString().equalsIgnoreCase('Write')]
 [if not anInstruction.oclAsType(arduino::Write).digitalpin.oclIsUndefined()]
-digitalWrite([anInstruction.oclAsType(arduino::Write).digitalpin.number.toString().at(2)/]);
+digitalWrite([anInstruction.oclAsType(arduino::Write).digitalpin.number.toString().at(2) + ', ' + anInstruction.oclAsType(arduino::Write).variable.name/]);
 [/if]
 [/if]
 [if anInstruction.eClass().name.toString().equalsIgnoreCase('Read')]
