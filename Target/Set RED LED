@@ -1,9 +1,0 @@
-void Setup(){
-pinMode(RED LED, OUTPUT);
-pinMode(SWITCH, INPUT);
-}
-void Loop(){
-digitalWrite(D1)
-digitalRead(D2)
-digitalRead(D1)
-}

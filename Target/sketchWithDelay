@@ -1,0 +1,12 @@
+void Setup(){
+pinMode(D0, OUTPUT);
+}
+void Loop(){
+
+ledStatus = 1;
+digitalWrite(D0);
+delay(1000);
+ledStatus = 0;
+digitalWrite(D0);
+
+}

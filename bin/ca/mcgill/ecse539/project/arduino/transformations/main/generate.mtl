@@ -5,29 +5,58 @@
 [template public generateElement(aSketch : Sketch)]
 [comment @main/]
 [file (aSketch.name, false, 'UTF-8')]
-void [aSketch.setup.name/](){
+void [aSketch.setup.name.toLowerCase()/](){
 [for (pin: DigitalPin | aSketch.setup.digitalpin)]
 [if pin.Direction.toString().equalsIgnoreCase('INPUT')]
-pinMode([pin.name/], INPUT);
+pinMode([pin.number.toString().at(2)/], INPUT);
 [/if]
 [if pin.Direction.toString().equalsIgnoreCase('OUTPUT')]
-pinMode([pin.name/], OUTPUT);
+pinMode([pin.number.toString().at(2)/], OUTPUT);
 [/if]
 [/for]
 }
-void [aSketch.loop.name/](){
+void [aSketch.loop.name.toLowerCase()/](){
+[comment first instrunction is always at the level 1 hierarcy/]
 [for (instruction: Instruction | aSketch.loop.instruction)]
-[if instruction.eClass().name.toString().equalsIgnoreCase('Write')]
-[if not instruction.oclAsType(arduino::Write).digitalpin.oclIsUndefined()]
-digitalWrite([instruction.oclAsType(arduino::Write).digitalpin.number/])
-[/if]
-[/if]
-[if instruction.eClass().name.toString().equalsIgnoreCase('Read')]
-[if not instruction.oclAsType(arduino::Read).digitalpin.oclIsUndefined()]
-digitalRead([instruction.oclAsType(arduino::Read).digitalpin.number/])
-[/if]
-[/if]
+[if instruction.isFrist]
+[writeInstruction(instruction)/]
+[/if]	
+
 [/for]
 }
 [/file]
+[/template]
+
+
+
+
+[template public writeInstruction(anInstruction : Instruction)]
+[if anInstruction.eAllContents(arduino::Instruction)->notEmpty()]
+[anInstruction.eClass().name.toString().toLower()/]([anInstruction.oclAsType(arduino::If).condition.variable.name +' ' + anInstruction.oclAsType(arduino::If).condition.mathoperator.operator.toString() + ' ' + anInstruction.oclAsType(arduino::If).condition.value.number /])
+{
+		[for (anotherinstruction: Instruction | anInstruction.eAllContents(arduino::Instruction))]
+			[if anotherinstruction.isFrist]
+[writeInstruction(anotherinstruction)/]
+}
+			[/if]
+		[/for]
+[else]
+[if anInstruction.eClass().name.toString().equalsIgnoreCase('Write')]
+[if not anInstruction.oclAsType(arduino::Write).digitalpin.oclIsUndefined()]
+digitalWrite([anInstruction.oclAsType(arduino::Write).digitalpin.number.toString().at(2)/]);
+[/if]
+[/if]
+[if anInstruction.eClass().name.toString().equalsIgnoreCase('Read')]
+[if not anInstruction.oclAsType(arduino::Read).digitalpin.oclIsUndefined()]
+[anInstruction.oclAsType(arduino::Read).variable.VariableType.toString().toLowerCase() + ' ' + anInstruction.oclAsType(arduino::Read).variable.name + ' = '  /]digitalRead([anInstruction.oclAsType(arduino::Read).digitalpin.number.toString().at(2)/]);
+[/if]
+[/if]
+[if anInstruction.eClass().name.toString().equalsIgnoreCase('VariableAssignment')]
+[anInstruction.oclAsType(arduino::VariableAssignment).variable.VariableType.toString().toLowerCase() + ' ' + anInstruction.oclAsType(arduino::VariableAssignment).variable.name + ' = ' + anInstruction.oclAsType(arduino::VariableAssignment).value.number/];
+[/if]
+[if anInstruction.eClass().name.toString().equalsIgnoreCase('delay')]
+[anInstruction.eClass().name.toString().toLower()+ '('+ anInstruction.oclAsType(arduino::Delay).duration + ')'/];
+[/if]
+[writeInstruction(anInstruction.next)/]
+[/if]
 [/template]
